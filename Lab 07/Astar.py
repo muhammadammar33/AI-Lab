@@ -2,7 +2,7 @@ import math
 
 
 class Node:
-    def __init__(self, state, parent, actions, totalCost, heuristic):
+    def __init__(self, state, parent, actions, heuristic, totalCost):
         self.state = state
         self.parent = parent
         self.actions = actions
@@ -84,7 +84,7 @@ def Astar():
                                        ** 2) + ((graph[goalState].heuristic[1] - graph[initialState].heuristic[1]) ** 2))
 
             if child[0] in explored:
-                if graph[child[0]].parent == currentNode or child[0] == initialState or explored[child[0][1]] <= currentCost + heuristicCost:
+                if graph[child[0]].parent == currentNode or child[0] == initialState or explored[child[0]][1] <= currentCost + heuristicCost:
                     continue
 
             if child[0] not in frontier:
